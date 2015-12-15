@@ -46,7 +46,6 @@ class ClientService
         // disparar notificacao
         // postar um twett
         try{
-
             $this->validator->with($data)->passesOrFail();
             return $this->repository->create($data);
 
@@ -63,14 +62,13 @@ class ClientService
      * @param array $data
      * @return mixed
      */
-    public function update(array $data){
+    public function update(array $data, $id){
 
         try{
-
             $this->validator->with($data)->passesOrFail();
-            return $this->repository->update($data);
+            return $this->repository->update($data, $id);
 
-        }catch (ValidationException $e){
+        }catch (ValidatorException $e){
             return [
                 'error'=>true,
                 'message'=>$e->getMessageBag()
