@@ -1,9 +1,10 @@
 <?php
 
 use CodeProject\Entities\Client;
+use CodeProject\Entities\Project;
 use Illuminate\Database\Seeder;
 
-class ClientTableSeeder extends Seeder
+class ProjectTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,8 +13,8 @@ class ClientTableSeeder extends Seeder
      */
     public function run()
     {
-        //Client::truncate();
+        //Project::truncate();
 
-        factory(Client::class, 25)->create();
+        factory(Project::class, 20)->create();
     }
 }
