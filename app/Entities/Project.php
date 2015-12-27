@@ -16,7 +16,7 @@ class Project extends Model implements Transformable
         return $this->belongsTo(Client::class);
     }
 
-    public function user(){
+    public function owner(){
         return $this->belongsTo(User::class);
     }
 
