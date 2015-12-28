@@ -37,7 +37,7 @@ class ProjectMemberController extends Controller
      */
     public function index($id)
     {
-        return $this->repository->findWhere(['project_id'=>$id]);
+        return $this->repository->with(['project'])->findWhere(['project_id'=>$id]);
     }
 
     /**

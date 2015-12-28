@@ -12,8 +12,8 @@ class ProjectMember extends Model implements Transformable
 
     protected $fillable = ['project_id', 'user_id'];
 
-    public function projects(){
-        return $this->hasMany(Project::class);
+    public function project(){
+        return $this->belongsTo(Project::class);
     }
 
     public function members(){
