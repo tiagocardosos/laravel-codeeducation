@@ -9,31 +9,28 @@
 namespace CodeProject\Services;
 
 
-use CodeProject\Repositories\ClientRepository;
-use CodeProject\Repositories\ProjectRepository;
-use CodeProject\Validators\ClientValidator;
-use CodeProject\Validators\ProjectValidator;
+use CodeProject\Repositories\ProjectTaskRepository;
+use CodeProject\Validators\ProjectTaskValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
-class ProjectService
+class ProjectTaskService
 {
     /**
-     * @var ProjeRepository
+     * @var ProjectTaskRepository
      */
-
-    protected $repository;
+    private $repository;
     /**
-     * @var ClientValidator
+     * @var ProjectTaskValidator
      */
     private $validator;
 
-
     /**
-     * ProjectService constructor.
-     * @param ProjectRepository $repository
-     * @param ProjectValidator $validator
+     * ProjectTaskService constructor.
+     * @param ProjectTaskRepository $repository
+     * @param ProjectTaskValidator $validator
      */
-    public function __construct(ProjectRepository $repository, ProjectValidator $validator){
+    public function __construct(ProjectTaskRepository $repository, ProjectTaskValidator $validator){
+
         $this->repository = $repository;
         $this->validator = $validator;
     }

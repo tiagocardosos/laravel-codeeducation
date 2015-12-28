@@ -3,29 +3,27 @@
 namespace CodeProject\Http\Controllers;
 
 use CodeProject\Http\Requests;
-use CodeProject\Repositories\ProjectRepository;
-use CodeProject\Services\ProjectService;
+use CodeProject\Repositories\ProjectTaskRepository;
+use CodeProject\Services\ProjectTaskService;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class ProjectTaskController extends Controller
 {
     /**
-     * @var ProjectRepository
+     * @var ProjectTaskRepository
      */
     private $repository;
     /**
-     * @var ProjectService
+     * @var ProjectTaskService
      */
     private $service;
 
-
     /**
-     * ProjectController constructor.
-     * @param ProjectRepository $repository
-     * @param ProjectService $service
-     * @internal param ProjectValidator $validator
+     * ProjectTaskController constructor.
+     * @param ProjectTaskRepository $repository
+     * @param ProjectTaskService $service
      */
-    public function __construct(ProjectRepository $repository, ProjectService $service)
+    public function __construct(ProjectTaskRepository $repository, ProjectTaskService $service)
     {
 
         $this->repository = $repository;
@@ -38,9 +36,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return $this->repository->all();
+        return $this->repository->findWhere(['project_id'=>$id]);
     }
 
     /**
@@ -57,35 +55,38 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     * @param $taskId
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $taskId)
     {
-        return $this->repository->with(['owner', 'notes', 'client'])->find($id);
+        return $this->repository->findWhere(['project_id'=>$id, 'id'=>$taskId]);
     }
 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @param $taskId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $taskId)
     {
-        return $this->service->update($request->all(), $id);
+        return $this->service->update($request->all(), $taskId);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     * @param $taskId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $taskId)
     {
-        $this->repository->delete($id);
+        $this->repository->delete($taskId);
     }
 }

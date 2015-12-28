@@ -2,6 +2,7 @@
 
 use CodeProject\Client;
 use CodeProject\Entities\ProjectNote;
+use CodeProject\Entities\ProjectTask;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,6 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ClientTableSeeder::class);
         $this->call(ProjectTableSeeder::class);
         $this->call(ProjectNoteTableSeeder::class);
+        $this->call(ProjectTaskTableSeeder::class);
+        $this->call(ProjectMemberTableSeeder::class);
         // $this->call(UserTableSeeder::class);
 
         Model::reguard();
