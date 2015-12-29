@@ -67,6 +67,6 @@ $factory->define(CodeProject\Entities\ProjectTask::class, function (Faker\Genera
 $factory->define(CodeProject\Entities\ProjectMember::class, function (Faker\Generator $faker) {
     return [
         'project_id'=>rand(1, 20),
-        'user_id'=>rand(1, 25)
+        'member_id'=>rand(1, 25)
     ];
 });
