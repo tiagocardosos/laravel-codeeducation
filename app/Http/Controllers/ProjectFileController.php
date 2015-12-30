@@ -57,7 +57,13 @@ class ProjectFileController extends Controller
         $file = $request->file('file');
         $extension = $file->getClientOriginalExtension();
 
-        Storage::put($request->name.".".$extension, File::get($file));
+        $data['file'] = $file;
+        $data['extension'] = $extension;
+        $data['name'] = $request->name;
+        $data['project_id']= $request->project_id;
+
+        $this->service->createFile($data);
+
     }
 
     /**
