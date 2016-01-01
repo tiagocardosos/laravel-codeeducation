@@ -25,3 +25,9 @@ Thumbs.db
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+#node
+node_modules
+
+#bower
+resources/bower_components
