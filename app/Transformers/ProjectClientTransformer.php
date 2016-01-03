@@ -20,7 +20,11 @@ class ProjectClientTransformer extends TransformerAbstract
     {
         return [
             'id'  => (int) $client->id,
-            //'name'=> $client->name
+            'name'=> $client->name,
+            'responsible'=> $client->responsible,
+            'email'=> $client->email,
+            'phone'=> $client->phone,
+            'obs'=> $client->obs,
         ];
     }
 }

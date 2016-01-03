@@ -36,7 +36,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return $this->repository->all();
+        $res = $this->repository->all();
+
+        return $res['data'];
+
     }
 
     /**
@@ -58,7 +61,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return $this->repository->find($id);
+        $res =  $this->repository->find($id);
+        return $res['data'];
     }
 
 

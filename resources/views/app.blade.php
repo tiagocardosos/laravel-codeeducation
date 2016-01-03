@@ -80,9 +80,17 @@
     <script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
 
+    <!-- CONTROLLERS -->
     <script src="{{ asset('build/js/app.js') }}"></script>
     <script src="{{ asset('build/js/controllers/login.js') }}"></script>
     <script src="{{ asset('build/js/controllers/home.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/client/list.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/client/new.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/client/edit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/client/remove.js') }}"></script>
+
+    <!-- SERVICES -->
+    <script src="{{ asset('build/js/services/client.js') }}"></script>
 
 @else
     <script src="{{ elixir('js/all.js') }}"></script>
